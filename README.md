@@ -2,13 +2,31 @@
 
 A simple question-answering system that answers natural-language questions about member data from a public API.
 
+## 🚀 Live Deployment
+
+**Service URL**: https://aiml-engineer-assignment.onrender.com
+
+**Quick Test**:
+```bash
+# Check service health
+curl https://aiml-engineer-assignment.onrender.com/health
+
+# Get statistics
+curl https://aiml-engineer-assignment.onrender.com/stats
+
+# Ask a question
+curl "https://aiml-engineer-assignment.onrender.com/ask?question=How%20many%20users%20are%20there?"
+```
+
+**GitHub Repository**: https://github.com/ksaimanikanta4-arch/aiml-engineer-assignment
+
 ## Features
 
-- **Natural Language Processing**: Answers questions using Claude 3.5 Sonnet (preferred) or OpenAI GPT-3.5-turbo
+- **Natural Language Processing**: Answers questions using Groq LLM (llama-3.3-70b-versatile - free tier), with fallback support for Claude 3.5 Sonnet or OpenAI GPT-3.5-turbo
 - **RESTful API**: Simple `/ask` endpoint that accepts questions via GET or POST
-- **Data Aggregation**: Automatically fetches and processes all messages from the external API
+- **Data Aggregation**: Automatically fetches and processes all 3,349 messages from the external API
 - **Fallback Support**: Basic keyword-based search when LLM is unavailable
-- **Dual LLM Support**: Supports both Claude and OpenAI APIs (Claude is preferred)
+- **Multi-LLM Support**: Supports Groq (preferred), Claude, and OpenAI APIs with automatic failover
 
 ## API Endpoints
 
@@ -62,7 +80,7 @@ Assessment Project/
 ### Prerequisites
 
 - Python 3.11+
-- Claude API key (preferred) or OpenAI API key (for LLM-based answers)
+- Groq API key (preferred - free tier) or Claude/OpenAI API key (for LLM-based answers)
 
 ### Installation
 
