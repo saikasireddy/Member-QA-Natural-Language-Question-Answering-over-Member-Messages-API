@@ -272,8 +272,27 @@ After analyzing the dataset from the external API using the `scripts/analysis.py
 
 ## Testing
 
-Test the service with example questions:
+Test the service with example questions using either format:
 
+### Simple Format (with spaces in quotes)
+```bash
+# When is Layla planning her trip to London?
+curl "http://localhost:8000/ask?question=When is Layla planning her trip to London?"
+
+# How many cars does Vikram Desai have?
+curl "http://localhost:8000/ask?question=How many cars does Vikram Desai have?"
+
+# What are Amira's favorite restaurants?
+curl "http://localhost:8000/ask?question=What are Amira's favorite restaurants?"
+
+# How many users are in the dataset?
+curl "http://localhost:8000/ask?question=How many users are in the dataset?"
+
+# List all user names
+curl "http://localhost:8000/ask?question=List all user names"
+```
+
+### URL-Encoded Format (with %20 for spaces)
 ```bash
 # When is Layla planning her trip to London?
 curl "http://localhost:8000/ask?question=When%20is%20Layla%20planning%20her%20trip%20to%20London?"
@@ -283,6 +302,14 @@ curl "http://localhost:8000/ask?question=How%20many%20cars%20does%20Vikram%20Des
 
 # What are Amira's favorite restaurants?
 curl "http://localhost:8000/ask?question=What%20are%20Amira's%20favorite%20restaurants?"
+```
+
+### POST Method
+```bash
+# Using POST for longer questions
+curl -X POST http://localhost:8000/ask \
+  -H "Content-Type: application/json" \
+  -d '{"question": "What are the most common topics discussed in the messages?"}'
 ```
 
 ## License
